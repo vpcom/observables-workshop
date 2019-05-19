@@ -1,0 +1,17 @@
+{
+  "title":"Data about Japan",
+  "project":"observables_workshop",
+  "project-url":"https://github.com/vpcom/observables-workshop/",
+  "demo":"vincentperrin.com",
+  "author":"vincentperrin.com",
+  "data": {
+    "id":"japan",
+    "name":"Japan",
+    "continent":"Asia",
+    "language":"Japanese",
+    "capital": "Tokyo",
+    "population":"126,440,000",
+    "density":"334/km2",
+    "gdp": "$5.632 trillion"
+  }
+}

@@ -1,3 +1,94 @@
 <p>
-  loading-showcase works!
+  This component loads 1 set of data at initialisation time.<br>
+  It displays it first immediatly, and then after a click.
 </p>
+<div>
+  <h3>With Observables</h3>
+  <div>
+    Country name: {{ (country_O$ | async)?.name }}<br>
+    <button (click)="show_O = !show_O">Show/hide details</button>
+    <div *ngIf="show_O && country_O$ | async as country">
+      Name: {{ country.name }}<br>
+      Capital: {{ country.capital }}<br>
+      Continent: {{ country.continent }}<br>
+      GDP: {{ country.gdp }}<br>
+      Language: {{ country.language }}<br>
+      Population: {{ country.population }}<br>
+      Density: {{ country.density }}<br>
+    </div>
+  </div>
+  <p>
+    Notes: The "as" syntax is convenient to have the object loaded locally in the DOM,<br>
+    but in this example we load the data each time we open the details because the async subscibes to a hot observable.
+  </p>
+</div>
+
+<div>
+  <h3>With Subjects</h3>
+  <div>
+    Country name: {{ (country_S$ | async)?.name }}<br>
+    <button (click)="show_S = !show_S">Show/hide details</button>
+    <div *ngIf="show_S && country_S$ | async as country">
+      Name: {{ country.name }}<br>
+      Capital: {{ country.capital }}<br>
+      Continent: {{ country.continent }}<br>
+      GDP: {{ country.gdp }}<br>
+      Language: {{ country.language }}<br>
+      Population: {{ country.population }}<br>
+      Density: {{ country.density }}<br>
+    </div>
+  </div>
+  <p>
+    Notes: The Subject is not very convenient. Ok, it doesn't trigger a new request,<br>
+    but you have to be on time to catch the moment the data arrives.<br>
+    If you click after the data arrived, your Subject will remain empty.<br>
+    Need to unsubscribe.
+  </p>
+</div>
+
+<div>
+  <h3>With Behaviour Subjects</h3>
+  <div>
+    Country name: {{ (country_BS$ | async)?.name }}<br>
+    <button (click)="show_BS = !show_BS">Show/hide details</button>
+    <div *ngIf="show_BS && country_BS$ | async as country">
+      Name: {{ country.name }}<br>
+      Capital: {{ country.capital }}<br>
+      Continent: {{ country.continent }}<br>
+      GDP: {{ country.gdp }}<br>
+      Language: {{ country.language }}<br>
+      Population: {{ country.population }}<br>
+      Density: {{ country.density }}<br>
+    </div>
+  </div>
+  <p>
+    Notes: The Behavior subject is ideal because the data is stored and retreive at any moment after,
+    even synchronously with getValue() if you wish.<br>
+    Need to unsubscribe.
+  </p>
+</div>
+  
+<div>
+  <h3>With Promises</h3>
+  <div>
+    Country name: {{ (country_P$ | async)?.name }}<br>
+    <button (click)="show_P = !show_P">Show/hide details</button>
+    <div *ngIf="show_P && country_P$ | async as country">
+      Name: {{ country.name }}<br>
+      Capital: {{ country.capital }}<br>
+      Continent: {{ country.continent }}<br>
+      GDP: {{ country.gdp }}<br>
+      Language: {{ country.language }}<br>
+      Population: {{ country.population }}<br>
+      Density: {{ country.density }}<br>
+    </div>
+  </div>
+  <p>
+    Notes: The Promises are also ideal ; it doesn't matter when the value is asked through the Async pipe,<br>
+    the value is provided to the consumer directly or thanks to the value which is cached inside.<br>
+    Also, a Promise doesn't require to unsubscribe, so you save verbosity and avoid the risk of having a memory leak.<br>
+    It is also good to note that this use case advantageous to Promises as there is only 1 value to consume.
+  </p>
+</div>
+    
+      
