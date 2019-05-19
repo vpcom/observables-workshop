@@ -20,7 +20,7 @@ export class JapanService {
         delay(1500),
         tap(data => console.log(`${callerName} fetching country: `, data)),
         catchError(error => {
-          console.warn('Error from CountryService.getCountry', error);
+          console.warn('Error from JapanService.getCountry', error);
           return throwError(error);
         }
       )

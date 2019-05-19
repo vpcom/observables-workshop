@@ -2,30 +2,24 @@
 
 ## Description
 
-Observables, Subjects, Behavior Subjects and even Promises put on a benchmark.
+The Observables Workshop is a place to experiment asynchronous technics, using RxJS and Promises.
+Explore the source code to see the different technics and execute it to see how it works.
+The code is explained so that one can understand the pluses and minuses of each case.
 
-The Observables Workshop is an attempt to showcase simple asynchronous ways to display data on a web page.
-You have heard of Observables, Subjects, Behavior Subjects and Promises. Which one to use, and why?
+The intent is to see how do Observables, Subjects, Behavior Subjects and Promises work on simple cases and how to avoid verbose code and memory leaks.
 
-
-## TL;DR
-
-It is easy to realise that Behavior Subjects are the most convenient ones to display data provided by a standard HTTP request.
-Promises perform also fairly well for such simple cases.
-If the data to display is relatively simple, using the Async pipe is convenient because it manages the unsubscription of Observables. But if the variable can be usefull to manage your state component, you can consider storing it in a variable and unsubscribe during the onDetroy cycle event.
 
 ## How to use
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+Make sure you already npm, otherwise install it from https://nodejs.org/.
 
-### Development server
+Clone the repo:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  git clone https://github.com/vpcom/observables-workshop.git
 
-### Running unit tests
+Run the project
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  cd observables-workshop
+  ng serve
+   
+And Navigate to `http://localhost:4200/`.

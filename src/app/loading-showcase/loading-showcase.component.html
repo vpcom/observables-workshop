@@ -1,6 +1,17 @@
+
+<p>
+  It is easy to note that Behavior Subjects are the most convenient ones to manipulate data provided by a standard HTTP request, but the outdated promise is still up to date for many common cases.<br>
+  The code is not very technical but explained so as to provide a rather deep understanding on how it works and why it produces this result.<br>
+  <br>
+</p>
 <p>
   This component loads 1 set of data at initialisation time.<br>
-  It displays it first immediatly, and then after a click.
+  It displays it first immediatly, and then after a click. See in the console when the service gets the data multiple times.
+</p>
+<p>
+  Please note that we don't manage here all aspects like error handling. The service calls local data with a delay of 1,5s.<br>
+  Also, we use the "as syntax" to be able to manipulate the object more easily.<br>
+  And eventually, the Async pipe subscribes to the Observables, Behavior Subbjects or Subjects and also unsubscribe, so it is very convenient.
 </p>
 <div>
   <h3>With Observables</h3>
@@ -18,8 +29,7 @@
     </div>
   </div>
   <p>
-    Notes: The "as" syntax is convenient to have the object loaded locally in the DOM,<br>
-    but in this example we load the data each time we open the details because the async subscibes to a hot observable.
+    Notes: In this example we load the data each time we open the details because the async subscibes to a hot observable.
   </p>
 </div>
 
@@ -40,9 +50,8 @@
   </div>
   <p>
     Notes: The Subject is not very convenient. Ok, it doesn't trigger a new request,<br>
-    but you have to be on time to catch the moment the data arrives.<br>
-    If you click after the data arrived, your Subject will remain empty.<br>
-    Need to unsubscribe.
+    but you have request the data before it arrives (< 1.5s here).<br>
+    If you click after the data arrived, your Subject will remain empty, because it is "cold", it won't request the data one more time.<br>
   </p>
 </div>
 
@@ -62,9 +71,8 @@
     </div>
   </div>
   <p>
-    Notes: The Behavior subject is ideal because the data is stored and retreive at any moment after,
-    even synchronously with getValue() if you wish.<br>
-    Need to unsubscribe.
+    Notes: The Behavior subject is ideal because the data is stored and can be retreived at any other moment.<br>
+    The 
   </p>
 </div>
   
@@ -90,5 +98,7 @@
     It is also good to note that this use case advantageous to Promises as there is only 1 value to consume.
   </p>
 </div>
-    
+<br>
+<br>
+<br> 
       
